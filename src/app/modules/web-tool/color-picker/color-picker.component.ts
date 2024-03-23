@@ -23,19 +23,20 @@ export class ColorPickerComponent {
   rgbValue = '';
   hexValue = '';
   cmykValue = '';
+  hslValue = '';
+  hsvValue = '';
 
   onSelectColor(rgbValue: string[]) {
     this.rgbValue = rgbValue.join(', ');
     this.hexValue = this.rgbToHex(rgbValue);
     this.cmykValue = this.rbgToCmyk(rgbValue).map(item => `${Math.round(item * 100)}%`).join(', ');
+    this.hslValue = this.rgbToHsl(rgbValue).join(', ');
+    this.hsvValue = this.rgbToHsV(rgbValue).join(', ');
   }
 
   rgbToHex(rgb: any[]) {
-    const convertToHex = (c: any) => {
-      const hex = parseInt(c).toString(16);
-      return hex.length == 1 ? '0' + hex : hex;
-    };
-    return '#' + convertToHex(rgb[0]) + convertToHex(rgb[1]) + convertToHex(rgb[2]);
+    const [r, g, b] = rgb.map(item => parseInt(item));
+    return '#' + ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
   }
 
   rbgToCmyk(rgb: any[]) {
@@ -43,10 +44,7 @@ export class ColorPickerComponent {
     let computedM = 0;
     let computedY = 0;
     let computedK = 0;
-
-    let r = parseInt(rgb[0]);
-    let g = parseInt(rgb[1]);
-    let b = parseInt(rgb[2]);
+    const [r, g, b] = rgb.map(item => parseInt(item));
 
     computedC = 1 - (r / 255);
     computedM = 1 - (g / 255);
@@ -59,5 +57,77 @@ export class ColorPickerComponent {
     computedK = minCMY;
 
     return [computedC, computedM, computedY, computedK];
+  }
+
+  rgbToHsl(rgb: any[]) {
+    const [r, g, b] = rgb
+    const normalizedR = r / 255;
+    const normalizedG = g / 255;
+    const normalizedB = b / 255;
+
+    // Find the maximum and minimum values of RGB
+    const max = Math.max(normalizedR, normalizedG, normalizedB);
+    const min = Math.min(normalizedR, normalizedG, normalizedB);
+
+    // Calculate lightness
+    const lightness = (max + min) / 2;
+
+    let hue = 0;
+    let saturation = 0;
+
+    // Calculate saturation and hue if not grayscale
+    if (max !== min) {
+      const delta = max - min;
+      saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
+
+      switch (max) {
+        case normalizedR:
+          hue = ((normalizedG - normalizedB) / delta + (normalizedG < normalizedB ? 6 : 0)) * 60;
+          break;
+        case normalizedG:
+          hue = ((normalizedB - normalizedR) / delta + 2) * 60;
+          break;
+        case normalizedB:
+          hue = ((normalizedR - normalizedG) / delta + 4) * 60;
+          break;
+      }
+    }
+    return [Math.round(hue) + '°', Math.round(saturation * 100) + '%', Math.round(lightness * 100) + '%'];
+  }
+
+  rgbToHsV(rgb: any[]) {
+    const [r, g, b] = rgb
+    const normalizedR = r / 255;
+    const normalizedG = g / 255;
+    const normalizedB = b / 255;
+
+    // Find the maximum and minimum values of RGB
+    const max = Math.max(normalizedR, normalizedG, normalizedB);
+    const min = Math.min(normalizedR, normalizedG, normalizedB);
+
+    // Calculate value
+    const value = max;
+
+    let hue = 0;
+    let saturation = 0;
+
+    // Calculate saturation and hue if not grayscale
+    if (max !== min) {
+      const delta = max - min;
+      saturation = delta / max;
+
+      switch (max) {
+        case normalizedR:
+          hue = ((normalizedG - normalizedB) / delta + (normalizedG < normalizedB ? 6 : 0)) * 60;
+          break;
+        case normalizedG:
+          hue = ((normalizedB - normalizedR) / delta + 2) * 60;
+          break;
+        case normalizedB:
+          hue = ((normalizedR - normalizedG) / delta + 4) * 60;
+          break;
+      }
+    }
+    return [Math.round(hue) + '°', Math.round(saturation * 100) + '%', Math.round(value * 100) + '%'];
   }
 }

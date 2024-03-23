@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-12 row d-flex justify-content-center">
+<div class="row mt-2">
+  <div class="col-12 d-flex justify-content-center">
     <div class="cur-col" style="--color: {{hexValue}}"></div>
     <app-color-palette [hue]="hue" (color)="onSelectColor($event)"></app-color-palette>
   </div>
@@ -10,14 +10,17 @@
    <div class="col-12 text-center">
      HEX: <div class="text">{{hexValue}}</div>
    </div>
-   <div class="col-4">
+   <div class="col-3">
      RGB: <div class="text">{{rgbValue}}</div>
    </div>
-   <div class="col-4">
+   <div class="col-3">
      CMYK: <div class="text">{{cmykValue}}</div>
    </div>
-   <div class="col-4">
-     RGB: <div class="text">{{rgbValue}}</div>
+   <div class="col-3">
+     HSV: <div class="text">{{hsvValue}}</div>
+   </div>
+   <div class="col-3">
+     HSL: <div class="text">{{hslValue}}</div>
    </div>
  </div>
 </div>

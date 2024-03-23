@@ -1,17 +1,23 @@
-<div class="cur-col">
-
-</div>
-<div class="color-wrapper">
-  <app-color-palette [hue]="hue" (color)="color = $event"></app-color-palette>
-  <app-color-slider
-    (color)="hue=$event"
-    style="margin-top:300px"
-  ></app-color-slider>
-</div>
-<div class="input-wrapper">
-  <span class="text">{{color}}</span>
-  <div
-    class="color-div"
-    [ngStyle]="{'background-color': color || 'white'}"
-  ></div>
+<div class="row">
+  <div class="col-12 row d-flex justify-content-center">
+    <div class="cur-col" style="--color: {{hexValue}}"></div>
+    <app-color-palette [hue]="hue" (color)="onSelectColor($event)"></app-color-palette>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <app-color-slider (color)="hue=$event"></app-color-slider>
+  </div>
+ <div class="row">
+   <div class="col-12 text-center">
+     HEX: <div class="text">{{hexValue}}</div>
+   </div>
+   <div class="col-4">
+     RGB: <div class="text">{{rgbValue}}</div>
+   </div>
+   <div class="col-4">
+     CMYK: <div class="text">{{cmykValue}}</div>
+   </div>
+   <div class="col-4">
+     RGB: <div class="text">{{rgbValue}}</div>
+   </div>
+ </div>
 </div>

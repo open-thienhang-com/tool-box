@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-8">
+    <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="value"></textarea>
+  </div>
+  <div class="col-12">
+    <p-button label="lower case" icon="pi pi-download" iconPos="right" (click)="toLowerCase()"></p-button>
+    <p-button label="UPPER CASE" icon="pi pi-download" iconPos="right" (click)="toUpperCase()"></p-button>
+  </div>
+  <div class="col-8">
+    <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="convertedValue"></textarea>
+  </div>
+</div>

@@ -25,6 +25,27 @@ export class TopMenuComponent implements OnInit {
             icon: 'pi pi-fw pi-trash',
             routerLink: 'color-picker'
           },
+          {
+            label: 'QR Generator',
+            icon: 'pi pi-fw pi-trash',
+            routerLink: 'qr-generator'
+          },
+        ]
+      },
+      {
+        label: 'Text',
+        icon: 'pi pi-fw pi-file',
+        items: [
+          {
+            label: 'Word counter',
+            icon: 'pi pi-fw pi-trash',
+            routerLink: 'word-counter'
+          },
+          {
+            label: 'Case converted',
+            icon: 'pi pi-fw pi-trash',
+            routerLink: 'case-converted'
+          },
         ]
       },
     ];

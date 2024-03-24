@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-8">
+    <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="value" (ngModelChange)="count()"></textarea>
+  </div>
+</div>
+{{wordNumber}} word{{wordNumber === 1 ? '' : 's'}}
+{{characterNumber}} character{{characterNumber === 1 ? '' : 's'}}

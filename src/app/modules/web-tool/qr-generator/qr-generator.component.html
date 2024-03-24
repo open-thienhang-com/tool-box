@@ -1,0 +1,30 @@
+<div class="row mt-2">
+  <div class="col-6">
+    <span class="p-float-label">
+      <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="value"></textarea>
+      <label for="float-input">Free Text</label>
+    </span>
+    <div>
+      QR Code Color:
+      <p-colorPicker [(ngModel)]="colorDark"></p-colorPicker>
+      Dot
+      <p-colorPicker [(ngModel)]="colorLight"></p-colorPicker>
+      Background
+    </div>
+  </div>
+  <div class="col-6">
+    Live preview
+    <div class="qr-container d-flex justify-content-center align-items-center">
+      @if (value) {
+        <qrcode #qrcode [qrdata]="value" [colorDark]="colorDark" [width]="50 + 1.75 * qrSize"
+                [colorLight]="colorLight"></qrcode>
+      }
+    </div>
+    <p-slider [(ngModel)]="qrSize" class="w-full"></p-slider>
+    @if (value) {
+      <div class="row text-center mt-2">
+        <p-button label="Download" icon="pi pi-download" iconPos="right" (click)="downloadQrCodeImage()"></p-button>
+      </div>
+    }
+  </div>
+</div>

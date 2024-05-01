@@ -1,19 +1,19 @@
 import {Component} from '@angular/core';
-import {ColorPickerModule} from "primeng/colorpicker";
 import {FormsModule} from "@angular/forms";
 import {ColorPaletteComponent} from "./color-palette/color-palette.component";
 import {ColorSliderComponent} from "./color-slider/color-slider.component";
 import {NgStyle} from "@angular/common";
+import {FieldSetComponent} from "../../../shared/components/field-set/field-set.component";
 
 @Component({
   selector: 'app-color-picker',
   standalone: true,
   imports: [
-    ColorPickerModule,
     FormsModule,
     ColorPaletteComponent,
     ColorSliderComponent,
-    NgStyle
+    NgStyle,
+    FieldSetComponent,
   ],
   templateUrl: './color-picker.component.html',
   styleUrl: './color-picker.component.scss'

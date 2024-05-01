@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {InputTextareaModule} from "primeng/inputtextarea";
 import {size} from "lodash";
 
 @Component({
@@ -8,7 +7,6 @@ import {size} from "lodash";
   standalone: true,
   imports: [
     FormsModule,
-    InputTextareaModule
   ],
   templateUrl: './word-counter.component.html',
   styleUrl: './word-counter.component.scss'

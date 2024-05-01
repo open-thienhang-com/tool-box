@@ -16,9 +16,13 @@ export class ColorSliderComponent implements AfterViewInit {
   width = 400;
   height = 100;
   selectedCircleRadius = 13;
+  defaultPositionX = 200;
+  defaultPositionY = 40
 
   ngAfterViewInit() {
-    this.draw()
+    this.selectedWidth = this.defaultPositionX;
+    this.draw();
+    this.emitColor(this.defaultPositionX, this.defaultPositionY)
   }
 
   draw() {
@@ -71,26 +75,37 @@ export class ColorSliderComponent implements AfterViewInit {
 
   onMouseDown(evt: MouseEvent) {
     this.mousedown = true
-    this.selectedWidth = evt.offsetX
+    this.selectedWidth = evt.offsetX;
+    this.modifySelectedWidth();
     this.draw()
     this.emitColor(evt.offsetX, evt.offsetY)
   }
 
   onMouseMove(evt: MouseEvent) {
     if (this.mousedown) {
-      this.selectedWidth = evt.offsetX
-      this.draw()
+      this.selectedWidth = evt.offsetX;
+      this.modifySelectedWidth();
+      this.draw();
       this.emitColor(evt.offsetX, evt.offsetY)
     }
   }
 
   emitColor(x: number, y: number) {
-    const rgbaColor = this.getColorAtPosition(x, y)
+    const rgbaColor = this.getColorAtPosition(x, 40)
     this.color.emit(rgbaColor)
   }
 
   getColorAtPosition(x: number, y: number) {
     const imageData = this.ctx.getImageData(x, y, 1, 1).data;
     return 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
+  }
+
+  modifySelectedWidth() {
+    if (this.selectedWidth > this.width - 2 * this.selectedCircleRadius) {
+      this.selectedWidth = this.width - 2 * this.selectedCircleRadius
+    }
+    if (this.selectedWidth < this.selectedCircleRadius) {
+      this.selectedWidth = this.selectedCircleRadius
+    }
   }
 }

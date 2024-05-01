@@ -1,1 +1,3 @@
-<p-menubar [model]="items"></p-menubar>
+@for (menu of items; track menu.name) {
+  <app-menu-item [menuItem]="menu"></app-menu-item>
+}

@@ -1,21 +1,20 @@
 import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {QRCodeModule} from "angularx-qrcode";
-import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FormsModule} from "@angular/forms";
-import {ColorPickerModule} from "primeng/colorpicker";
-import {SliderModule} from "primeng/slider";
-import {ButtonModule} from "primeng/button";
+import {MatSlider, MatSliderThumb} from "@angular/material/slider";
+import {MatIcon} from "@angular/material/icon";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-qr-generator',
   standalone: true,
   imports: [
     QRCodeModule,
-    InputTextareaModule,
     FormsModule,
-    ColorPickerModule,
-    SliderModule,
-    ButtonModule
+    MatSlider,
+    MatSliderThumb,
+    MatIcon,
+    MatButton,
   ],
   templateUrl: './qr-generator.component.html',
   styleUrl: './qr-generator.component.scss'

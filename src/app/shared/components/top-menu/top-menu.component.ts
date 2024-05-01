@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {MenubarModule} from "primeng/menubar";
-import {MenuItem} from "primeng/api";
+import {MenuItem} from "../../../core/models/menu-item";
+import {MenuItemComponent} from "../menu-item/menu-item.component";
 
 @Component({
   selector: 'app-top-menu',
   standalone: true,
   imports: [
-    MenubarModule
+    MenuItemComponent
+
   ],
   templateUrl: './top-menu.component.html',
   styleUrl: './top-menu.component.scss'
@@ -17,32 +18,32 @@ export class TopMenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'Web tool',
+        name: 'Web tool',
         icon: 'pi pi-fw pi-file',
         items: [
           {
-            label: 'Color picker',
+            name: 'Color picker',
             icon: 'pi pi-fw pi-trash',
             routerLink: 'color-picker'
           },
           {
-            label: 'QR Generator',
+            name: 'QR Generator',
             icon: 'pi pi-fw pi-trash',
             routerLink: 'qr-generator'
           },
         ]
       },
       {
-        label: 'Text',
+        name: 'Text',
         icon: 'pi pi-fw pi-file',
         items: [
           {
-            label: 'Word counter',
+            name: 'Word counter',
             icon: 'pi pi-fw pi-trash',
             routerLink: 'word-counter'
           },
           {
-            label: 'Case converted',
+            name: 'Case converted',
             icon: 'pi pi-fw pi-trash',
             routerLink: 'case-converted'
           },

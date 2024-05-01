@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TopMenuComponent} from "./shared/components/top-menu/top-menu.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TopMenuComponent,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

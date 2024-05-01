@@ -1,4 +1,4 @@
-<div class="row mt-2">
+<div class="mt-2">
   <div class="col-12 d-flex justify-content-center">
     <div class="cur-col" style="--color: {{hexValue}}"></div>
     <app-color-palette [hue]="hue" (color)="onSelectColor($event)"></app-color-palette>
@@ -6,21 +6,51 @@
   <div class="col-12 d-flex justify-content-center">
     <app-color-slider (color)="hue=$event"></app-color-slider>
   </div>
- <div class="row">
-   <div class="col-12 text-center">
-     HEX: <div class="text">{{hexValue}}</div>
-   </div>
-   <div class="col-3">
-     RGB: <div class="text">{{rgbValue}}</div>
-   </div>
-   <div class="col-3">
-     CMYK: <div class="text">{{cmykValue}}</div>
-   </div>
-   <div class="col-3">
-     HSV: <div class="text">{{hsvValue}}</div>
-   </div>
-   <div class="col-3">
-     HSL: <div class="text">{{hslValue}}</div>
-   </div>
- </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <app-field-set legend="HEX">
+        <ng-template #content>
+          <p class="m-2">
+            {{ hexValue }}
+          </p>
+        </ng-template>
+      </app-field-set>
+    </div>
+    <div class="col-3">
+      <app-field-set legend="RGB">
+        <ng-template #content>
+          <p class="m-2">
+            {{ rgbValue }}
+          </p>
+        </ng-template>
+      </app-field-set>
+    </div>
+    <div class="col-3">
+      <app-field-set legend="CMYK">
+        <ng-template #content>
+          <p class="m-2">
+            {{ cmykValue }}
+          </p>
+        </ng-template>
+      </app-field-set>
+    </div>
+    <div class="col-3">
+      <app-field-set legend="HSV">
+        <ng-template #content>
+          <p class="m-2">
+            {{ hsvValue }}
+          </p>
+        </ng-template>
+      </app-field-set>
+    </div>
+    <div class="col-3">
+      <app-field-set legend="HSL">
+        <ng-template #content>
+          <p class="m-2">
+            {{ hslValue }}
+          </p>
+        </ng-template>
+      </app-field-set>
+    </div>
+  </div>
 </div>

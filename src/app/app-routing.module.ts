@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'case-converted',
     loadComponent: () => import('./modules/text/case-converter/case-converter.component').then(mod => mod.CaseConverterComponent)
   },
+  {
+    path: 'base64',
+    loadComponent: () => import('./modules/web-tool/base64/base64.component').then(mod => mod.Base64Component)
+  },
+  {
+    path: 'json-formatter',
+    loadComponent: () => import('./modules/web-tool/json-formatter/json-formatter.component').then(mod => mod.JsonFormatterComponent)
+  },
 ];
 
 @NgModule({

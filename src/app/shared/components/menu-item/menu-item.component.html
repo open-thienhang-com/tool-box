@@ -1,6 +1,0 @@
-<button mat-button [matMenuTriggerFor]="menu">{{ menuItem.name }}</button>
-<mat-menu #menu="matMenu">
-  @for (sub of menuItem.items; track sub.name) {
-    <button mat-menu-item (click)="onMenuClicked(sub)">{{sub.name}}</button>
-  }
-</mat-menu>

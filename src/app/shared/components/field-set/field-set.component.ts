@@ -5,7 +5,7 @@ import {NgTemplateOutlet} from "@angular/common";
   selector: 'app-field-set',
   standalone: true,
   imports: [
-    NgTemplateOutlet
+    NgTemplateOutlet,
   ],
   templateUrl: './field-set.component.html',
   styleUrl: './field-set.component.scss'

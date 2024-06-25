@@ -1,0 +1,21 @@
+<div class="p-2">
+  @for (menuGroup of menu; track menuGroup.name) {
+    <div class="side-menu-item my-1">
+      <button class="btn p-0 text-white" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+$index"
+              aria-expanded="false" [attr.aria-controls]="$index">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+        {{ menuGroup.name }}
+      </button>
+
+      @if (menuGroup.items) {
+        <div class="collapse show" [id]="$index">
+          @for (subItem of menuGroup.items; track subItem.name) {
+            <div class="side-menu-sub-item my-1" role="button">
+              <span class="menu-name" (click)="onMenuClick(subItem.routerLink)">{{ subItem.name }}</span>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

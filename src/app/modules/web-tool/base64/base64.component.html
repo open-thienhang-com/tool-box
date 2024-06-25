@@ -1,0 +1,18 @@
+
+
+<div class="container">
+  <h1>Base64 Converter</h1>
+  <textarea class="w-100" rows="10" [(ngModel)]="baseValue" (ngModelChange)="onBaseValueChange()"></textarea>
+
+  <button class="btn btn-primary my-2" (click)="decode()">
+    @if (isEncoding) {
+      Encode
+    } @else {
+      Decode
+    }
+  </button>
+
+  <textarea class="w-100" rows="10" [(ngModel)]="resultValue"></textarea>
+
+  <button class="btn btn-primary my-2" (click)="copy()"><i class="fa-regular fa-copy me-2"></i>Copy to clipboard</button>
+</div>

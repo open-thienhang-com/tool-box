@@ -6,15 +6,18 @@
 
   legend {
     position: absolute;
+    padding: 7px 15px;
     background-color: white;
-    padding: 10px 20px;
     top: -22px;
     width: fit-content;
     font-size: 20px;
     font-weight: 500;
+    color: black;
+    border-radius: 5px;
   }
 
   .content {
     font-size: 16px;
+    margin-top: 5px;
   }
 }

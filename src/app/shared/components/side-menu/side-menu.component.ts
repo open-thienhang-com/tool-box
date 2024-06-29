@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AppConst} from "../../app-const";
-import {NgClass, NgTemplateOutlet} from "@angular/common";
+import {NgClass, NgOptimizedImage, NgTemplateOutlet} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 const {appMenu} = AppConst;
 
@@ -10,7 +10,8 @@ const {appMenu} = AppConst;
   imports: [
     NgTemplateOutlet,
     RouterLink,
-    NgClass
+    NgClass,
+    NgOptimizedImage
   ],
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.scss'

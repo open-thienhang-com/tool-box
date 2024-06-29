@@ -4,6 +4,8 @@ import {FormsModule} from "@angular/forms";
 import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 import {MatIcon} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
+import {MatFormField} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 @Component({
   selector: 'app-qr-generator',
@@ -15,6 +17,8 @@ import {MatButton} from "@angular/material/button";
     MatSliderThumb,
     MatIcon,
     MatButton,
+    MatFormField,
+    MatInput,
   ],
   templateUrl: './qr-generator.component.html',
   styleUrl: './qr-generator.component.scss'

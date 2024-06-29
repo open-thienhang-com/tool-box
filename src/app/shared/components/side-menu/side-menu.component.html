@@ -10,8 +10,11 @@
       @if (menuGroup.items) {
         <div class="collapse show" [id]="$index">
           @for (subItem of menuGroup.items; track subItem.name) {
-            <div class="side-menu-sub-item my-1" role="button">
-              <span class="menu-name" (click)="onMenuClick(subItem.routerLink)">{{ subItem.name }}</span>
+            <div class="side-menu-sub-item my-1 d-flex align-items-center" role="button" (click)="onMenuClick(subItem.routerLink)">
+              @if (subItem.icon) {
+                <img [ngSrc]="subItem.icon" [alt]="subItem.name" width="15" height="15" priority>
+              }
+              <span class="ms-2 menu-name">{{ subItem.name }}</span>
             </div>
           }
         </div>

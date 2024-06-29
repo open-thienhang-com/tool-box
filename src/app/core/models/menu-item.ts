@@ -1,6 +1,6 @@
 export class MenuItem {
   name: string;
-  icon: string;
+  icon?: string;
   routerLink?: string;
   items?: MenuItem[];
 

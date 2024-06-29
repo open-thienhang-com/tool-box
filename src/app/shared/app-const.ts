@@ -2,26 +2,25 @@ export class AppConst {
   static appMenu = [
     {
       name: 'Web tool',
-      icon: 'pi pi-fw pi-file',
       items: [
         {
           name: 'Color picker',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/color-picker.png',
           routerLink: 'color-picker'
         },
         {
           name: 'QR Generator',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/qr.webp',
           routerLink: 'qr-generator'
         },
         {
           name: 'Base64',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/base64.png',
           routerLink: 'base64'
         },
         {
           name: 'JSON Formatter',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/json.png',
           routerLink: 'json-formatter'
         },
       ],
@@ -29,16 +28,15 @@ export class AppConst {
     },
     {
       name: 'Text',
-      icon: 'pi pi-fw pi-file',
       items: [
         {
           name: 'Word counter',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/word-counter.png',
           routerLink: 'word-counter'
         },
         {
           name: 'Case converted',
-          icon: 'pi pi-fw pi-trash',
+          icon: '/assets/icons/case-converter.png',
           routerLink: 'case-converted'
         },
       ],

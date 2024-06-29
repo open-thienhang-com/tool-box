@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {size} from "lodash";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-word-counter',
   standalone: true,
-  imports: [
-    FormsModule,
-  ],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule],
+
   templateUrl: './word-counter.component.html',
   styleUrl: './word-counter.component.scss'
 })

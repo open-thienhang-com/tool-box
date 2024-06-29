@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {isCI} from "@angular/cli/src/utilities/environment-options";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {copyToClipboard} from "../../../shared/Helper";
 
 @Component({
   selector: 'app-base64',
@@ -35,7 +36,7 @@ export class Base64Component implements OnInit{
   }
 
   copy() {
-    navigator.clipboard.writeText(this.resultValue).then();
+    copyToClipboard(this.resultValue);
     this._snackBar.open('Copy successfully', '', { duration: 2000 });
   }
 }

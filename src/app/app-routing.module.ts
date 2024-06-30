@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'qr-generator',
-    loadComponent: () => import('./modules/web-tool/qr-generator/qr-generator.component').then(mod => mod.QrGeneratorComponent)
+    loadComponent: () => import('./modules/image/qr-generator/qr-generator.component').then(mod => mod.QrGeneratorComponent)
   },
   {
     path: 'word-counter',

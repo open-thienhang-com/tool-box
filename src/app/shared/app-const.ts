@@ -8,11 +8,7 @@ export class AppConst {
           icon: '/assets/icons/color-picker.png',
           routerLink: 'color-picker'
         },
-        {
-          name: 'QR Generator',
-          icon: '/assets/icons/qr.webp',
-          routerLink: 'qr-generator'
-        },
+
         {
           name: 'Base64',
           icon: '/assets/icons/base64.png',
@@ -38,6 +34,17 @@ export class AppConst {
           name: 'Case converted',
           icon: '/assets/icons/case-converter.png',
           routerLink: 'case-converted'
+        },
+      ],
+      isExpanded: true,
+    },
+    {
+      name: 'Image',
+      items: [
+        {
+          name: 'QR Generator',
+          icon: '/assets/icons/qr.webp',
+          routerLink: 'qr-generator'
         },
       ],
       isExpanded: true,

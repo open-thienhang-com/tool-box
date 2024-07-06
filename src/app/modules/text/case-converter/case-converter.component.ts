@@ -6,13 +6,14 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {copyToClipboard} from "../../../shared/Helper";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {PageHeaderComponent} from "../../../shared/components/page-header/page-header.component";
 
 @Component({
   selector: 'app-case-converter',
   standalone: true,
   imports: [
     FormsModule,
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule
+    MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, PageHeaderComponent
   ],
   templateUrl: './case-converter.component.html',
   styleUrl: './case-converter.component.scss'

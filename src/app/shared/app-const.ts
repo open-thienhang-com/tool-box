@@ -35,6 +35,11 @@ export class AppConst {
           icon: '/assets/icons/case-converter.png',
           routerLink: 'case-converted'
         },
+        {
+          name: 'Text generator',
+          icon: '/assets/icons/case-converter.png',
+          routerLink: 'text-generator'
+        },
       ],
       isExpanded: true,
     },

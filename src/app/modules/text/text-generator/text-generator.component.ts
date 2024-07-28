@@ -4,6 +4,9 @@ import {FormsModule} from "@angular/forms";
 import {MatFormField, MatSuffix} from "@angular/material/form-field";
 import {MatIconButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
+import {copyToClipboard} from "../../../shared/Helper";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {AppBaseComponent} from "../../../shared/components/app-base/app-base.component";
 
 const words = [
   "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
@@ -31,17 +34,18 @@ const words = [
   templateUrl: './text-generator.component.html',
   styleUrl: './text-generator.component.scss'
 })
-export class TextGeneratorComponent {
+export class TextGeneratorComponent extends AppBaseComponent {
   paragraph = '';
   length = 0;
 
   generateParagraph() {
-    const paragraph = [];
-    for (let i = 0; i > -1; i++) {
+    let paragraph = '';
+    while (paragraph.length < this.length) {
       const randomIndex = Math.floor(Math.random() * words.length);
-      paragraph.push(words[randomIndex]);
+      paragraph += words[randomIndex] + ' ';
     }
-
-    this.paragraph = paragraph.join(' ') + '.';
+    this.paragraph = paragraph.substring(0, this.length)
   }
+
+
 }

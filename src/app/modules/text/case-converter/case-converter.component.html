@@ -23,7 +23,7 @@
     <div class="col-10">
       <mat-form-field class="w-100">
         <input matInput [ngModel]="item.value" spellcheck="false"/>
-        <button mat-icon-button matSuffix (click)="copy(item.value)" [attr.aria-label]="'Copy'">
+        <button mat-icon-button matSuffix (click)="copyString(item.value)" [attr.aria-label]="'Copy'">
           <i class="fa-regular fa-copy"></i>
         </button>
       </mat-form-field>

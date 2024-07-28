@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'text-generator',
     loadComponent: () => import('./modules/text/text-generator/text-generator.component').then(mod => mod.TextGeneratorComponent)
   },
+  {
+    path: 'qr-scanner',
+    loadComponent: () => import('./modules/image/qr-scanner/qr-scanner.component').then(mod => mod.QrScannerComponent)
+  },
 ];
 
 @NgModule({
